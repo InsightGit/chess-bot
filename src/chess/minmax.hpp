@@ -5,9 +5,18 @@
 #include <algorithm>
 #include <limits>
 namespace minimax{
-    
+    // maximizingplayer can be true or false, true being white, false being black.
     int minimax(chess::Board position, int depth, int alpha, int beta, bool maximizingplayer){
-        if(depth == 0 || position.possible_states().size() == 0){
+        if(depth == 0 || position.gameEndStatus() != chess::GameOutcome::InProgress){
+            if(maximizingplayer && chess::GameOutcome::WhiteVictory == position.gameEndStatus()){
+                return std::numeric_limits<int>::max();
+            }else if(!maximizingplayer && chess::GameOutcome::BlackVictory == position.gameEndStatus()){
+                return std::numeric_limits<int>::max();
+            }else if(!maximizingplayer && chess::GameOutcome::WhiteVictory == position.gameEndStatus()){
+                return std::numeric_limits<int>::min();
+            }else if(maximizingplayer && chess::GameOutcome::BlackVictory == position.gameEndStatus()){
+                return std::numeric_limits<int>::min();
+            }
             return position.getStaticEval();
         }
         int eval;
