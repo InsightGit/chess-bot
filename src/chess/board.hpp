@@ -44,7 +44,7 @@ namespace chess {
         virtual PieceType attack(Vector2 from_pos, Vector2 to_pos) = 0;
 
         virtual GameOutcome gameEndStatus() = 0;
-
+        virtual int getStaticEval() = 0;
         virtual void move(Vector2 from_pos, Vector2 to_pos) = 0;
         virtual void move(PieceType piece_type, Vector2 to_pos, int piece_id = 0) = 0;
     };
