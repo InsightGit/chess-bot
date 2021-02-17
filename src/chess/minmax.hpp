@@ -16,6 +16,8 @@ namespace minimax{
                 return std::numeric_limits<int>::min();
             }else if(maximizingplayer && chess::GameOutcome::BlackVictory == position.gameEndStatus()){
                 return std::numeric_limits<int>::min();
+            }else if(chess::GameOutcome::Tie == position.gameEndStatus()){
+                return 0;
             }
             return position.getStaticEval();
         }
