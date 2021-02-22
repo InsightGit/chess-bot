@@ -19,7 +19,7 @@ namespace chess {
 
             m_composite = m_x + (m_y * 8);
         }
-
+        friend bool operator== (const Vector2 &c1, const Vector2 &c2);
         Vector2() : Vector2(0, 0) {}
 
         #ifndef _DISABLE_XY
@@ -38,6 +38,9 @@ namespace chess {
 
         bool operator==(const Vector2 &other) const {
             return m_composite == other.m_composite;
+        }
+        friend bool operator== (const Vector2 &c1, const Vector2 &c2){
+            return (c1.get_x() == c2.get_x()) && (c1.get_y() == c2.get_y());
         }
     private:
         uint8_t m_composite;
