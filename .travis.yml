@@ -1,5 +1,6 @@
 language: cpp
 
 script:
+    - sudo apt upgrade
     - cmake ./
     - cmake --build .
