@@ -107,8 +107,8 @@ void chess::PieceBoard::move(chess::PieceType piece_type, chess::Vector2 to_pos,
 
 }
 
-std::vector<chess::Vector2> chess::PieceBoard::get_attack_positions(Piece piece) {
+std::vector<chess::Vector2> chess::PieceBoard::get_attack_positions(Piece &piece) {
     Vector2 piece_position = piece.get_position();
-    for()
+    // for()
     return std::vector<Vector2>();
 }
