@@ -1,6 +1,6 @@
 language: cpp
-
+dist: focal
 script:
-    - sudo apt upgrade
+    - sudo apt-get install cmake
     - cmake ./
     - cmake --build .
